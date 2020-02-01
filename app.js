@@ -153,3 +153,12 @@ instTripService.findByName('Nantes').then(tripTrouve => priceService.findPriceBy
 
     instTripService.findByName('Rio de Janeiro').then(tripTrouve => priceService.findPriceByTripId(tripTrouve.id)).then(prixTrouve => console.log(`le prix est de ${prixTrouve} €`))
     .catch(err => console.log(err));  
+
+    // finalement
+    const nomVoyage = 'Rio de Janeiro';
+
+    instTripService.findByName(nomVoyage)
+    .then(trip => trip.id)
+    .then(tripId => instPriceService.findPriceByTripId(tripId))
+    .then(price => console.log(`Price Found ${price}`))
+    .catch(err => console.log(err));
